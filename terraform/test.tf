@@ -1,0 +1,85 @@
+terraform {
+  required_version = ">= 1.6"
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 5.0"
+    }
+  }
+}
+terraform {
+  required_version = ">= 1.6"
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 5.0"
+    }
+  }
+}
+
+provider "aws" {
+  region = var.aws_region
+  assume_role {
+    role_arn     = var.assume_role_arn
+    session_name = "TerraformSession"
+  }
+  default_tags {
+    tags = {
+      Project = "ynov-iac-2025"
+    }
+  }
+}terraform {
+  required_version = ">= 1.6"
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 5.0"
+    }
+  }
+}
+
+provider "aws" {
+  region = var.aws_region
+  assume_role {
+    role_arn     = var.assume_role_arn
+    session_name = "TerraformSession"
+  }
+  default_tags {
+    tags = {
+      Project = "ynov-iac-2025"
+    }
+  }
+}terraform {
+  required_version = ">= 1.6"
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 5.0"
+    }
+  }
+}
+
+provider "aws" {
+  region = var.aws_region
+  assume_role {
+    role_arn     = var.assume_role_arn
+    session_name = "TerraformSession"
+  }
+  default_tags {
+    tags = {
+      Project = "ynov-iac-2025"
+    }
+  }
+}
+provider "aws" {
+  region = var.aws_region
+  assume_role {
+    role_arn     = var.assume_role_arn
+    session_name = "TerraformSession"
+  }
+  default_tags {
+    tags = {
+      Project = "ynov-iac-2025"
+    }
+  }
+}
