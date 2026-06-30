@@ -3,10 +3,10 @@
   hosts: localhost
   gather_facts: false
   tasks:
-    - name: Zipper le handler Python
+    - name: Zipper le dossier Lambda complet
       community.general.archive:
-        path: ../lambda/handler.py
-        dest: ../lambda/deployment_package.zip
+        path: ../lambda/*
+        dest: ../deployment_package.zip
         format: zip
 
     - name: Mettre à jour la fonction via amazon.aws collection
@@ -14,3 +14,5 @@
         name: "image_to_pdf_processor"
         state: present
         zip_file: "../lambda/deployment_package.zip"
+
+
