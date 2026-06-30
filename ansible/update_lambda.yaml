@@ -8,9 +8,10 @@
         path: ../lambda/*
         dest: ../deployment_package.zip
         format: zip
+        mode: '0644'
 
     - name: Mettre à jour la fonction via amazon.aws collection
-      community.aws.lambda:
+      amazon.aws.lambda: # noqa args
         name: "image_to_pdf_processor"
         state: present
         zip_file: "../lambda/deployment_package.zip"
