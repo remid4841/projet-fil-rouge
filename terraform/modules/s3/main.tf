@@ -1,9 +1,9 @@
-resource "aws_s3_bucket" "source" {
-  bucket = "source-image-bucket-ynov"
+resource "aws_s3_bucket" "source" { 
+  bucket = "source-image-fadi-azzouz-2025"  
   force_destroy = true 
 }
 
 resource "aws_s3_bucket" "destination" {
-  bucket = "dest-pdf-bucket-ynov"
+  bucket = "dest-pdf-fadi-azzouz-2025" 
   force_destroy = true
 }
