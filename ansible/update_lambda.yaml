@@ -10,9 +10,7 @@
         format: zip
 
     - name: Mettre à jour la fonction via amazon.aws collection
-      amazon.aws.lambda_function:
+      community.aws.lambda:
         name: "image_to_pdf_processor"
         state: present
         zip_file: "../lambda/deployment_package.zip"
-
-
