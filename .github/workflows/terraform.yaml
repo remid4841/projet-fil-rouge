@@ -45,7 +45,10 @@ jobs:
       - name: Infracost Estimate
         run: infracost breakdown --path terraform/
 
+      - name: Install Ansible collections
+        run: ansible-galaxy collection install -r ansible/requirements.yml
+
       - name: Run ansible-lint
         uses: ansible/ansible-lint@v6
         with:
-          path: ansible/
+          path: "ansible/"
