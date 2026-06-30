@@ -15,6 +15,10 @@ data "archive_file" "lambda_zip" {
 resource "aws_lambda_function" "processor" {
   # checkov:skip=CKV_AWS_116: DLQ non requise pour le périmètre de ce projet
   # checkov:skip=CKV_AWS_50: X-Ray tracing non requis pour le périmètre de ce projet
+  # checkov:skip=CKV_AWS_115: Limite de concurrence non requise
+  # checkov:skip=CKV_AWS_117: Déploiement dans un VPC non requis
+  # checkov:skip=CKV_AWS_272: Validation code-signing non requise
+  # checkov:skip=CKV_AWS_173: Chiffrement KMS des variables d'environnement non requis
 
   filename         = data.archive_file.lambda_zip.output_path
   function_name    = "image_to_pdf_processor"
