@@ -53,3 +53,10 @@ jobs:
 
       - name: Run ansible-lint
         run: ansible-lint ansible/
+      - name: Terraform Apply
+        # On exécute l'apply uniquement si on est sur la branche main (pour éviter de déployer lors d'une simple Pull Request)
+        if: github.ref == 'refs/heads/main'
+        run: terraform -chdir=terraform apply -auto-approve
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
