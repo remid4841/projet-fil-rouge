@@ -1,5 +1,5 @@
 resource "aws_s3_bucket" "source" {
-  bucket = "source-image-fadi-azzouz-2025"
+  bucket = var.source_bucket_name
   force_destroy = true 
 
   # checkov:skip=CKV2_AWS_6: Public access block non requis pour le périmètre du projet
@@ -12,7 +12,7 @@ resource "aws_s3_bucket" "source" {
 }
 
 resource "aws_s3_bucket" "destination" {
-  bucket = "dest-pdf-fadi-azzouz-2025"
+  bucket = var.destination_bucket_name
   force_destroy = true
 
   # checkov:skip=CKV2_AWS_6: Public access block non requis pour le périmètre du projet
