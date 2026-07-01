@@ -96,14 +96,14 @@ Déclenché à chaque push, le pipeline enchaîne :
 
 | Composant | État |
 |---|---|
-| Provisioning Terraform (S3 + Lambda + IAM) | ✅ Fonctionnel, déployé avec succès |
-| Déclenchement automatique S3 → Lambda | ✅ Fonctionnel |
-| Sécurité (`assume_role`, tags, policies restreintes) | ✅ Conforme au sujet |
-| Pipeline CI/CD (fmt/validate/plan/Checkov/Infracost/lint) | ✅ Vert |
-| Logique métier du handler (conversion image → PDF) | ✅ Codée |
-| Packaging des dépendances Python (Pillow) dans le déploiement Lambda | ⚠️ En cours — Pillow n'est pas encore inclus dans le zip de déploiement |
-| Étape Ansible de mise à jour du handler branchée dans la CI | ⚠️ En cours — le playbook existe et est linté, l'invocation dans le pipeline reste à finaliser |
-| Preuves d'exécution AWS CLI (test end-to-end) | ⏳ À réaliser |
+| Provisioning Terraform (S3 + Lambda + IAM) |  Fonctionnel, déployé avec succès |
+| Déclenchement automatique S3 → Lambda |  Fonctionnel |
+| Sécurité (`assume_role`, tags, policies restreintes) |  Conforme au sujet |
+| Pipeline CI/CD (fmt/validate/plan/Checkov/Infracost/lint) |  Vert |
+| Logique métier du handler (conversion image → PDF) |  Codée |
+| Packaging des dépendances Python (Pillow) dans le déploiement Lambda |  En cours — Pillow n'est pas encore inclus dans le zip de déploiement |
+| Étape Ansible de mise à jour du handler branchée dans la CI |  En cours — le playbook existe et est linté, l'invocation dans le pipeline reste à finaliser |
+| Preuves d'exécution AWS CLI (test end-to-end) |  À réaliser |
 
 ## 5. Déploiement local
 
