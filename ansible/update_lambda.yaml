@@ -6,7 +6,7 @@
     - name: Zipper le dossier Lambda complet
       community.general.archive:
         path: ../lambda/*
-        dest: ../deployment_package.zip
+        dest: ../lambda/deployment_package.zip
         format: zip
         mode: '0644'
 

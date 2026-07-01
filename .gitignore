@@ -1,0 +1,15 @@
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+.terraform.lock.hcl
+crash.log
+
+# Lambda build artifacts
+terraform/modules/lambda/lambda_function.zip
+lambda/PIL/
+**/__pycache__/
+*.pyc
+
+# Ansible
+ansible/build/

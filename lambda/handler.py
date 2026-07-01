@@ -1,7 +1,19 @@
-import boto3
 import os
+import sys
 import urllib.parse
-from PIL import Image
+from pathlib import Path
+
+import boto3
+
+script_dir = str(Path(__file__).resolve().parent)
+if script_dir in sys.path:
+    sys.path.remove(script_dir)
+
+try:
+    from PIL import Image
+except ImportError:
+    sys.path.insert(0, script_dir)
+    from PIL import Image
 
 s3_client = boto3.client('s3')
 DEST_BUCKET = os.environ.get('DEST_BUCKET')
@@ -17,11 +29,12 @@ def lambda_handler(event, context):
         
         # 2. Convertir l'image en PDF (et la renommer)
         image = Image.open(download_path)
-        pdf_filename = f"{os.path.splitext(os.path.basename(object_key))}.pdf"
+        base_name, _ = os.path.splitext(os.path.basename(object_key))
+        pdf_filename = f"{base_name}.pdf"
         pdf_path = f"/tmp/{pdf_filename}"
         
         # Sauvegarde au format PDF
-        image.convert('RGB').save(pdf_path)
+        image.convert('RGB').save(pdf_path, format='PDF')
         
         # 3. Uploader le PDF dans le bucket de destination
         s3_client.upload_file(pdf_path, DEST_BUCKET, pdf_filename)
